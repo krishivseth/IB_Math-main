@@ -1,0 +1,130 @@
+﻿@model IB_Math.Models.DiagnosticTest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DiagnosticTest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagtest_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagtest_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CraetedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CraetedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deletedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deletedby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagtest_que)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagtest_que)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weightage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weightage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cours.Course_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cours.Course_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Diagtest_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

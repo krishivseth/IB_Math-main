@@ -1,0 +1,87 @@
+﻿@model IB_Math.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_FrontMaster.cshtml";
+}
+
+
+@Html.Raw(@ViewBag.Message)
+<div class="page page-h">
+    <div class="page-content z-documentation-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6  mx-auto">
+                    <div class="card bg-color card-width border-radius20">
+                        <div class="card-body">
+                            <div class="mb-6 mt-6">
+                                <h3 class="font-weight-semibold text-center">
+                                    Log In Your Account
+                                </h3>
+                            </div>
+                            @using (Html.BeginForm("Login", "Users", FormMethod.Post))
+                            {
+                                <div class="single-page customerpage">
+                                    <div class="wrapper wrapper2 box-shadow-0">
+                                        <form id="login" class="" tabindex="500">
+                                            <div class="row">
+                                                <div class="email mt-5">
+                                                    @Html.TextBoxFor(e => e.User_email, new { type = "text", placeholder = "Email ID" })<br />
+                                                    @Html.ValidationMessageFor(e => e.User_email, "", new { @class = "text-danger" })
+                                                    @*<input type="email" name="email" placeholder="Email" class="mt-5 fs-16 p-6">*@
+                                                </div>
+                                                <div class="password mt-5">
+                                                    @Html.TextBoxFor(e => e.User_password, new { type = "password", placeholder = "Password" })<br />
+                                                    @Html.ValidationMessageFor(e => e.User_password, "", new { @class = "text-danger" })
+
+                                                    @*<input type="password" name="password" placeholder="Password" class="mt-5 fs-16 p-6">*@
+                                                </div>
+                                                <div class="col-md-8 mt-7 text-dark">
+                                                    Don't have an account? <a href="/Users/Register" class="fs-16 fw-400 text-primary">Register Yourself</a>
+                                                </div>
+                                                <div class="col-md-4 mt-7">
+                                                    <button class="btn btn-primary skyblue-btn btn-block fs-14 border-radius10" type="submit">Log In</button>
+                                                </div>
+                                                <div class="col-12 d-none">
+                                                    <div class="row mt-7">
+                                                        <div class="col-md-6 col-xl-4 text-center mt-3">
+                                                            <div class="btn-group">
+                                                                <a href="https://www.facebook.com/"
+                                                                   class="social-button fb-btn login-social">
+                                                                    <span class="fe fe-facebook"></span> FACEBOOK
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-xl-4 text-center mt-3">
+                                                            <div class="btn-group">
+                                                                <a href="https://twitter.com/"
+                                                                   class="social-button skyblue-btn login-social">
+                                                                    <span class="fe fe-twitter"></span> TWITTER
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-xl-4 text-center mt-3">
+                                                            <div class="btn-group">
+                                                                <a href="https://www.google.com/gmail/"
+                                                                   class="social-button google-btn login-social">
+                                                                    <span class="fe fe-linkedin"></span> GOOGLE
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

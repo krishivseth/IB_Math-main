@@ -1,0 +1,52 @@
+﻿@model IB_Math.Models.User
+@{
+    ViewBag.Title = "Courses";
+    Layout = "~/Views/Shared/_FrontMaster1.cshtml";
+}
+
+<!--Page-Header-->
+<div class="page-header">
+    <h4 class="page-title">Courses</h4>
+</div>
+<!--/Page-Header-->
+<!-- Course Progress -->
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <label>Select Student</label>
+            @Html.DropDownList("User_id", new SelectList(ViewBag.students, "Value", "Text","Select"), htmlAttributes: new { @class = "form-control form-select student_drp" })
+            @Html.ValidationMessageFor(model => model.User_id, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-12">
+            <div id="course_div">
+
+            </div>
+        </div>
+    </div>
+}
+
+<!-- JQuery js-->
+@section scripts{
+    <script>
+        $(function () {
+            $(".student_drp").click(function () {
+                $.ajax({
+                    url: "/Dashboard/studCourses/" + $(this).val(),
+                    type: "POST",
+                    success: function (response) {
+                        console.log("respose", response);
+                        if (response != null) {
+                            $('#course_div').html(response);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+
+
+
+

@@ -1,0 +1,231 @@
+﻿<!doctype html>
+<html lang="en">
+
+
+<head>
+    <!-- Meta data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://spruko.com/demo/edomi/Edomi/assets/images/brand/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://spruko.com/demo/edomi/Edomi/assets/images/brand/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- Title -->
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap css -->
+    <link href="~/wwwroot/assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Sidemenu Css -->
+    <link href="~/wwwroot/assets/css/sidemenu.css" rel="stylesheet" />
+
+    <!-- Dashboard Css -->
+    <link href="~/wwwroot/assets/css/style.css" rel="stylesheet" />
+    <link href="~/wwwroot/assets/css/admin-custom.css" rel="stylesheet" />
+
+    <!-- c3.js Charts Plugin -->
+    <link href="~/wwwroot/assets/plugins/charts-c3/c3-chart.css" rel="stylesheet" />
+
+    <!-- Data table css -->
+    <link href="~/wwwroot/assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="~/wwwroot/assets/plugins/datatable/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <!-- P-scroll bar css-->
+    <link href="~/wwwroot/assets/plugins/pscrollbar/pscrollbar.css" rel="stylesheet" />
+
+    <!---Font icons-->
+    <link href="~/wwwroot/assets/css/icons.css" rel="stylesheet" />
+
+    <!--Select2 css -->
+    <link href="/assets/plugins/select2/select2.css" rel="stylesheet" />
+
+    <!-- Color Skin css -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="~/wwwroot/assets/color-skins/color.css" />
+
+
+    <!-- Custom css -->
+    <link href="~/wwwroot/assets/css/custom.css" rel="stylesheet" />
+
+</head>
+
+<body class="app sidebar-mini">
+
+
+
+    <!--Loader-->
+    <div id="global-loader">
+        <img src="https://spruko.com/demo/edomi/Edomi/assets/images/loader.svg" class="loader-img" alt="">
+    </div>
+    <!--/Loader-->
+    <!--Page-->
+    <div class="page">
+        <div class="page-main">
+
+            <!--App-Header-->
+            <div class="app-header1 header py-2 d-flex">
+                <div class="container-fluid">
+                    <div class="d-flex">
+                        <a class="header-brand" href="index.html">
+                            <span>IB Math</span>
+                        </a>
+                        <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"><i class=""><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg></i></a>
+                        <div class="d-flex order-lg-2 ms-auto heaader-right">
+                            <button class="navbar-toggler navresponsive-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fe fe-more-vertical header-icons navbar-toggler-icon"></i>
+                            </button>
+                            <div class="p-0 mb-0 navbar navbar-expand-lg  responsive-navbar navbar-dark  ">
+                                <div class="navbar-collapse collapse" id="navbarSupportedContent-4">
+                                    <div class="d-flex">
+                                        <div class="dropdown header-user ">
+                                            <a href="javascript:void(0)" class="nav-link leading-none user-img" data-bs-toggle="dropdown">
+                                                <img src="~/wwwroot/assets/images/users/user.png" alt="profile-img" class="avatar">
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow ">
+                                                <a class="dropdown-item" href="/Users/profile">
+                                                    <i class="dropdown-icon icon icon-user"></i> My Profile
+                                                </a>
+                                                <a class="dropdown-item" href="/Users/logout">
+                                                    <i class="dropdown-icon  icon icon-power"></i> Log out
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/App-Header-->
+            <!-- Sidebar menu-->
+            <aside class="app-sidebar doc-sidebar">
+                <a class="header-brand sidemenu-header-brand" href="index.html">
+                    <span class="text-dark header-brand-img desktop-logo">IB Math</span>
+                </a>
+                <ul class="side-menu">
+                    <li class="slide">
+                        <a class="side-menu__item" href="login-signup.html">
+                            <span class="side-menu__label text-center fs-12 text-white">
+                                <button type="button" class="btn btn-primary w-100 teacher-name">
+                                    @*<img src="~/wwwroot/assets/images/users/user.png" alt="profile-img" class="teacher-profile">*@
+                                    @Session["useremail"]
+                                </button>
+                            </span>
+                        </a>
+                    </li>
+                    @if (Convert.ToString(Session["User_Role"]).Equals("1"))
+                    {
+                        if (!Convert.ToString(Session["test_flag"]).Equals("y"))
+                        {
+
+
+                            <li class="slide">
+                                <a class="side-menu__item" href="/DiagnosticTests/Diagnostic_main"><i class="fa fa-duotone fa-brain me-5"></i><span class="side-menu__label"> Diagnostic Test</span></a>
+                            </li>
+                        }
+                        else
+                        {
+
+                            <li class="slide">
+                                <a class="side-menu__item" href="/Dashboard/courses"><i class="icon icon-badge me-5"></i><span class="side-menu__label"> Courses</span></a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="slide">
+                            <a class="side-menu__item" href="/Dashboard/frontIndex"><i class="icon icon-badge me-5"></i><span class="side-menu__label"> Courses</span></a>
+                        </li>
+                    }
+
+                </ul>
+            </aside>
+            <!-- /Sidebar menu-->
+            <!--App-Content-->
+            <div class="app-content  my-3 my-md-5">
+                <div class="side-app">
+                    @RenderBody()
+
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <footer class="footer">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
+                        Copyright © 2022 IB Math All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--/Footer-->
+    </div>
+
+    <!-- Back to top -->
+    <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+
+    <!-- JQuery js-->
+    <script src="~/wwwroot/assets/js/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="~/wwwroot/assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="~/wwwroot/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--JQuery Sparkline Js-->
+    <script src="~/wwwroot/assets/js/jquery.sparkline.min.js"></script>
+
+    <!-- Circle Progress Js-->
+    <script src="~/wwwroot/assets/js/circle-progress.min.js"></script>
+
+    <!-- Star Rating Js-->
+    <script src="~/wwwroot/assets/plugins/jquery-bar-rating/jquery.barrating.js"></script>
+    <script src="~/wwwroot/assets/plugins/jquery-bar-rating/js/rating.js"></script>
+
+    <!-- Fullside-menu Js-->
+    <script src="~/wwwroot/assets/plugins/sidemenu/sidemenu.js"></script>
+
+    <!--Select2 js -->
+    <script src="~/wwwroot/assets/plugins/select2/select2.full.min.js"></script>
+    <script src="~/wwwroot/assets/js/select2.js"></script>
+
+    <!-- Data tables -->
+    <script src="~/wwwroot/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="~/wwwroot/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/wwwroot/assets/js/datatable.js"></script>
+
+    <!-- Custom scroll bar Js-->
+    <script src="~/wwwroot/assets/plugins/pscrollbar/pscrollbar.js"></script>
+    <script src="~/wwwroot/assets/plugins/pscrollbar/pscroll.js"></script>
+
+    <!--Counters -->
+    <script src="~/wwwroot/assets/plugins/counters/counterup.min.js"></script>
+    <script src="~/wwwroot/assets/plugins/counters/waypoints.min.js"></script>
+
+    <!-- CHARTJS CHART -->
+    <script src="~/wwwroot/assets/plugins/chart/Chart.bundle.js"></script>
+    <script src="~/wwwroot/assets/plugins/chart/utils.js"></script>
+
+    <!-- Index Scripts -->
+    <script src="~/wwwroot/assets/js/index2.js"></script>
+
+    <!-- Custom Js-->
+    <script src="~/wwwroot/assets/js/admin-custom.js"></script>
+
+    @RenderSection("scripts", false)
+    <script>
+        $(function () {
+            $('#User_password').blur(function () {
+                $('#btn-pwdchange').removeAttr('disabled')
+            })
+        })
+    </script>
+
+</body>
+
+
+
+</html>

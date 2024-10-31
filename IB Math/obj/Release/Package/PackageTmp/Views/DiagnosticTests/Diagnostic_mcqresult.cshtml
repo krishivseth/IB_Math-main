@@ -1,0 +1,50 @@
+﻿@model IEnumerable<IB_Math.Models.sp_GetStudentScore_Result>
+@{
+    ViewBag.Title = "Diagnostic Test Result";
+    Layout = "~/Views/Shared/_FrontMaster1.cshtml";
+}
+<div class="side-app">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-md-12 d-block mx-auto">
+                <!--Page-Header-->
+                <div class="page-header d-none d-lg-block">
+                    <h4 class="page-title">Diagnostic Test Result</h4>
+                </div>
+                <!--/Page-Header-->
+                <!--Page-Header-->
+                <div class="page-header   d-block d-lg-none">
+                    <h4 class="page-title fs-20">Diagnostic Test Result</h4>
+                </div>
+                <!--/Page-Header-->
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 p-0">
+                                <div class="alert alert-success" role="alert">
+                                    <i class="fa fa-check-circle-o me-2" aria-hidden="true"></i> Well done! You successfully submitted the test.
+                                </div>
+                            </div>
+                            @foreach (var item in Model)
+                            {
+                                <div class="@(item.Score < 70  ? "alert alert-danger" : "alert alert-success" )" style="">
+                                    <div class="row">
+                                        <div class="col-3 right">
+                                            <h4>@item.Course_name : </h4> <h2>@item.Score</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="col-12 text-center mt-3">
+                                <a href="/Dashboard/courses" class="btn btn-primary fs-18">View Courses <i class="fa fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,725 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6432DECF-45AF-473A-865A-9CF554FD641B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IB_Math</RootNamespace>
+    <AssemblyName>IB Math</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44304</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\IB_MathModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IB_MathModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\IB_MathModel.edmx.diagram">
+      <DependentUpon>IB_MathModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Models\IB_MathModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IB_MathModel.edmx</DependentUpon>
+      <LastGenOutput>IB_MathModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\IB_MathModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IB_MathModel.edmx</DependentUpon>
+      <LastGenOutput>IB_MathModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="wwwroot\assets\color-skins\color.css" />
+    <Content Include="wwwroot\assets\css\admin-custom.css" />
+    <Content Include="wwwroot\assets\css\custom.css" />
+    <Content Include="wwwroot\assets\css\icons.css" />
+    <Content Include="wwwroot\assets\css\sidemenu.css" />
+    <Content Include="wwwroot\assets\css\style.css" />
+    <Content Include="wwwroot\assets\iconfonts\feather\feather.css" />
+    <Content Include="wwwroot\assets\iconfonts\feather\fonts\feather-webfont6cfa.svg" />
+    <Content Include="wwwroot\assets\iconfonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="wwwroot\assets\iconfonts\glyphicons\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\assets\iconfonts\glyphicons\glyphicon.css" />
+    <Content Include="wwwroot\assets\iconfonts\ionicons\fonts\ioniconsaa26.svg" />
+    <Content Include="wwwroot\assets\iconfonts\ionicons\ionicons.css" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-brands-400.svg" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-regular-400.svg" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-solid-900.svg" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\line-awesome.css" />
+    <Content Include="wwwroot\assets\iconfonts\linearicons\fonts\Linearicons-Free54e9.svg" />
+    <Content Include="wwwroot\assets\iconfonts\linearicons\Linearicons.css" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\materialdesignicons\materialdesignicons-webfontdf71-2.html" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\materialdesignicons\materialdesignicons-webfontdf71-3.html" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\materialdesignicons\materialdesignicons-webfontdf71.html" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\materialdesignicons.css" />
+    <Content Include="wwwroot\assets\iconfonts\pe-icon-7-stroke\fonts\Pe-icon-7-strokebb1d.svg" />
+    <Content Include="wwwroot\assets\iconfonts\pe-icon-7-stroke\Pe-icon-7.css" />
+    <Content Include="wwwroot\assets\iconfonts\simple-line-icons\fonts\Simple-Line-Iconsb26c.svg" />
+    <Content Include="wwwroot\assets\iconfonts\simple-line-icons\simple-line-icons.css" />
+    <Content Include="wwwroot\assets\iconfonts\themify\fonts\themify9f24.svg" />
+    <Content Include="wwwroot\assets\iconfonts\themify\themify.css" />
+    <Content Include="wwwroot\assets\iconfonts\typicons\fonts\typicons.svg" />
+    <Content Include="wwwroot\assets\iconfonts\typicons\typicons.css" />
+    <Content Include="wwwroot\assets\iconfonts\weathericons\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="wwwroot\assets\iconfonts\weathericons\weathericons.css" />
+    <Content Include="wwwroot\assets\images\banners\About.png" />
+    <Content Include="wwwroot\assets\images\banners\banner1.png" />
+    <Content Include="wwwroot\assets\images\banners\banner4.jpg" />
+    <Content Include="wwwroot\assets\images\banners\subscribe.html" />
+    <Content Include="wwwroot\assets\images\brand\book.png" />
+    <Content Include="wwwroot\assets\images\brand\diploma.png" />
+    <Content Include="wwwroot\assets\images\brand\favicon.png" />
+    <Content Include="wwwroot\assets\images\brand\logo-white.png" />
+    <Content Include="wwwroot\assets\images\brand\logo.png" />
+    <Content Include="wwwroot\assets\images\brand\online-course.png" />
+    <Content Include="wwwroot\assets\images\flags\french_flag.jpg" />
+    <Content Include="wwwroot\assets\images\flags\germany_flag.jpg" />
+    <Content Include="wwwroot\assets\images\flags\italy_flag.jpg" />
+    <Content Include="wwwroot\assets\images\flags\russia_flag.jpg" />
+    <Content Include="wwwroot\assets\images\flags\spain_flag.jpg" />
+    <Content Include="wwwroot\assets\images\flags\us_flag.jpg" />
+    <Content Include="wwwroot\assets\images\ibmath-course\Group 446.png" />
+    <Content Include="wwwroot\assets\images\ibmath-course\Group 448.png" />
+    <Content Include="wwwroot\assets\images\ibmath-course\Group 449.png" />
+    <Content Include="wwwroot\assets\images\ibmath-course\Group 450.png" />
+    <Content Include="wwwroot\assets\images\IB\CAL1.png" />
+    <Content Include="wwwroot\assets\images\IB\CAL2.png" />
+    <Content Include="wwwroot\assets\images\IB\CAL3.png" />
+    <Content Include="wwwroot\assets\images\IB\CAL4.png" />
+    <Content Include="wwwroot\assets\images\IB\FUN1.png" />
+    <Content Include="wwwroot\assets\images\IB\FUN2.png" />
+    <Content Include="wwwroot\assets\images\IB\FUN3.png" />
+    <Content Include="wwwroot\assets\images\IB\FUN4.png" />
+    <Content Include="wwwroot\assets\images\IB\GT1.png" />
+    <Content Include="wwwroot\assets\images\IB\GT2.png" />
+    <Content Include="wwwroot\assets\images\IB\GT3.png" />
+    <Content Include="wwwroot\assets\images\IB\GT4.png" />
+    <Content Include="wwwroot\assets\images\IB\NA1.png" />
+    <Content Include="wwwroot\assets\images\IB\NA2.png" />
+    <Content Include="wwwroot\assets\images\IB\NA3.png" />
+    <Content Include="wwwroot\assets\images\IB\NA4.png" />
+    <Content Include="wwwroot\assets\images\IB\SP1.png" />
+    <Content Include="wwwroot\assets\images\IB\SP2.png" />
+    <Content Include="wwwroot\assets\images\IB\SP3.png" />
+    <Content Include="wwwroot\assets\images\IB\SP4.png" />
+    <Content Include="wwwroot\assets\images\media\0-1.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-10.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-11.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-2.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-3.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-4.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-5.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-6.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-7.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-8.jpg" />
+    <Content Include="wwwroot\assets\images\media\0-9.jpg" />
+    <Content Include="wwwroot\assets\images\media\1.jpg" />
+    <Content Include="wwwroot\assets\images\media\14.jpg" />
+    <Content Include="wwwroot\assets\images\media\17.jpg" />
+    <Content Include="wwwroot\assets\images\media\2.jpg" />
+    <Content Include="wwwroot\assets\images\media\21.jpg" />
+    <Content Include="wwwroot\assets\images\media\22.jpg" />
+    <Content Include="wwwroot\assets\images\media\23.jpg" />
+    <Content Include="wwwroot\assets\images\media\24.jpg" />
+    <Content Include="wwwroot\assets\images\media\25.jpg" />
+    <Content Include="wwwroot\assets\images\media\3.jpg" />
+    <Content Include="wwwroot\assets\images\media\5.jpg" />
+    <Content Include="wwwroot\assets\images\media\7.jpg" />
+    <Content Include="wwwroot\assets\images\media\8.jpg" />
+    <Content Include="wwwroot\assets\images\media\blue.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\1.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\10.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\12.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\2.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\3.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\4.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\5.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\6.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\7.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\8.jpg" />
+    <Content Include="wwwroot\assets\images\media\color\sm\9.jpg" />
+    <Content Include="wwwroot\assets\images\media\construction.jpg" />
+    <Content Include="wwwroot\assets\images\media\error.jpg" />
+    <Content Include="wwwroot\assets\images\media\gradient1.jpg" />
+    <Content Include="wwwroot\assets\images\media\green.jpg" />
+    <Content Include="wwwroot\assets\images\media\img01.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\1.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\10.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\11.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\12.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\15.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\2.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\3.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\4.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\5.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\7.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\8.jpg" />
+    <Content Include="wwwroot\assets\images\media\light\9.jpg" />
+    <Content Include="wwwroot\assets\images\media\media1.jpg" />
+    <Content Include="wwwroot\assets\images\media\media2.jpg" />
+    <Content Include="wwwroot\assets\images\media\media3.jpg" />
+    <Content Include="wwwroot\assets\images\media\media4.jpg" />
+    <Content Include="wwwroot\assets\images\media\media5.jpg" />
+    <Content Include="wwwroot\assets\images\media\premium.png" />
+    <Content Include="wwwroot\assets\images\media\thumbnails\thumb1.jpg" />
+    <Content Include="wwwroot\assets\images\media\thumbnails\thumb2.jpg" />
+    <Content Include="wwwroot\assets\images\media\thumbnails\thumb3.jpg" />
+    <Content Include="wwwroot\assets\images\other\about.html" />
+    <Content Include="wwwroot\assets\images\other\construction.html" />
+    <Content Include="wwwroot\assets\images\other\login.html" />
+    <Content Include="wwwroot\assets\images\patterns\4.png" />
+    <Content Include="wwwroot\assets\images\patterns\5.png" />
+    <Content Include="wwwroot\assets\images\patterns\circle4.png" />
+    <Content Include="wwwroot\assets\images\png\10.png" />
+    <Content Include="wwwroot\assets\images\png\11.png" />
+    <Content Include="wwwroot\assets\images\png\47.png" />
+    <Content Include="wwwroot\assets\images\png\6.png" />
+    <Content Include="wwwroot\assets\images\png\8.png" />
+    <Content Include="wwwroot\assets\images\png\bg.png" />
+    <Content Include="wwwroot\assets\images\png\power.png" />
+    <Content Include="wwwroot\assets\images\png\web\1.png" />
+    <Content Include="wwwroot\assets\images\png\web\2.png" />
+    <Content Include="wwwroot\assets\images\png\web\4.png" />
+    <Content Include="wwwroot\assets\images\png\web\6.png" />
+    <Content Include="wwwroot\assets\images\products\b5.html" />
+    <Content Include="wwwroot\assets\images\users\female\1.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\10.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\11.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\12.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\13.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\15.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\16.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\17.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\18.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\2.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\20.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\21.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\26.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\27.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\29.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\3.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\4.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\5.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\6.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\7.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\8.jpg" />
+    <Content Include="wwwroot\assets\images\users\female\9.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\1.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\10.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\11.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\12.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\13.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\14.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\15.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\16.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\17.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\18.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\19.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\2.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\20.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\25.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\26.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\3.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\32.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\33.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\34.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\4.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\41.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\5.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\6.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\7.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\8.jpg" />
+    <Content Include="wwwroot\assets\images\users\male\9.jpg" />
+    <Content Include="wwwroot\assets\images\users\user.png" />
+    <Content Include="wwwroot\assets\js\accor.js" />
+    <Content Include="wwwroot\assets\js\admin-custom.js" />
+    <Content Include="wwwroot\assets\js\apexcharts.js" />
+    <Content Include="wwwroot\assets\js\app-calendar-events.js" />
+    <Content Include="wwwroot\assets\js\app-calendar.js" />
+    <Content Include="wwwroot\assets\js\calendar.js" />
+    <Content Include="wwwroot\assets\js\chart-dygraph.js" />
+    <Content Include="wwwroot\assets\js\chart.js" />
+    <Content Include="wwwroot\assets\js\chartbundle.js" />
+    <Content Include="wwwroot\assets\js\charts.js" />
+    <Content Include="wwwroot\assets\js\chat.js" />
+    <Content Include="wwwroot\assets\js\circle-progress.min.js" />
+    <Content Include="wwwroot\assets\js\counterup.js" />
+    <Content Include="wwwroot\assets\js\custom.js" />
+    <Content Include="wwwroot\assets\js\datatable.js" />
+    <Content Include="wwwroot\assets\js\date-picker.js" />
+    <Content Include="wwwroot\assets\js\echarts.js" />
+    <Content Include="wwwroot\assets\js\file-upload.js" />
+    <Content Include="wwwroot\assets\js\flot.js" />
+    <Content Include="wwwroot\assets\js\form-wizard.js" />
+    <Content Include="wwwroot\assets\js\form-wizard2.js" />
+    <Content Include="wwwroot\assets\js\formeditor-1.js" />
+    <Content Include="wwwroot\assets\js\formeditor.js" />
+    <Content Include="wwwroot\assets\js\formelements.js" />
+    <Content Include="wwwroot\assets\js\index1.js" />
+    <Content Include="wwwroot\assets\js\index2.js" />
+    <Content Include="wwwroot\assets\js\index3.js" />
+    <Content Include="wwwroot\assets\js\index4.js" />
+    <Content Include="wwwroot\assets\js\index5.js" />
+    <Content Include="wwwroot\assets\js\jquery-3.2.1.min.js" />
+    <Content Include="wwwroot\assets\js\jquery.sparkline.min.js" />
+    <Content Include="wwwroot\assets\js\jqvmap.js" />
+    <Content Include="wwwroot\assets\js\morris.js" />
+    <Content Include="wwwroot\assets\js\popover.js" />
+    <Content Include="wwwroot\assets\js\range.js" />
+    <Content Include="wwwroot\assets\js\select2.js" />
+    <Content Include="wwwroot\assets\js\sparkline.js" />
+    <Content Include="wwwroot\assets\js\sweet-alert.js" />
+    <Content Include="wwwroot\assets\js\tabs.js" />
+    <Content Include="wwwroot\assets\js\timeline.js" />
+    <Content Include="wwwroot\assets\plugins\accordion-Wizard-Form\jquery.accordion-wizard.min.js" />
+    <Content Include="wwwroot\assets\plugins\accordion\accordion.css" />
+    <Content Include="wwwroot\assets\plugins\accordion\accordion.min.js" />
+    <Content Include="wwwroot\assets\plugins\bootstrap-tagsinput\js\bootstrap-tagsinput.js" />
+    <Content Include="wwwroot\assets\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="wwwroot\assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="wwwroot\assets\plugins\bootstrap\js\popper.min.js" />
+    <Content Include="wwwroot\assets\plugins\calendar\jquery.datetimepicker.css" />
+    <Content Include="wwwroot\assets\plugins\calendar\jquery.datetimepicker.min.js" />
+    <Content Include="wwwroot\assets\plugins\calendar\resources\fonts\iconfont.svg" />
+    <Content Include="wwwroot\assets\plugins\Chart.js\Chart.js" />
+    <Content Include="wwwroot\assets\plugins\charts-c3\c3-chart.css" />
+    <Content Include="wwwroot\assets\plugins\charts-c3\c3-chart.js" />
+    <Content Include="wwwroot\assets\plugins\charts-c3\d3.v5.min.js" />
+    <Content Include="wwwroot\assets\plugins\chart\Chart.bundle.js" />
+    <Content Include="wwwroot\assets\plugins\chart\utils.js" />
+    <Content Include="wwwroot\assets\plugins\chat\autosize.min.js" />
+    <Content Include="wwwroot\assets\plugins\chat\jquery.convform.css" />
+    <Content Include="wwwroot\assets\plugins\chat\jquery.convform.js" />
+    <Content Include="wwwroot\assets\plugins\ckeeditor\cke-editor-1.js" />
+    <Content Include="wwwroot\assets\plugins\ckeeditor\cke-editor.js" />
+    <Content Include="wwwroot\assets\plugins\ckeeditor\ckeditor.js" />
+    <Content Include="wwwroot\assets\plugins\ckeeditor\ckeeditor.css" />
+    <Content Include="wwwroot\assets\plugins\countdown\countdowntime.js" />
+    <Content Include="wwwroot\assets\plugins\countdown\moment-timezone-with-data.min.js" />
+    <Content Include="wwwroot\assets\plugins\countdown\moment-timezone.min.js" />
+    <Content Include="wwwroot\assets\plugins\countdown\moment.min.js" />
+    <Content Include="wwwroot\assets\plugins\counters\counter-1.js" />
+    <Content Include="wwwroot\assets\plugins\counters\counter.js" />
+    <Content Include="wwwroot\assets\plugins\counters\counterup.min.js" />
+    <Content Include="wwwroot\assets\plugins\counters\jquery.missofis-countdown.js" />
+    <Content Include="wwwroot\assets\plugins\counters\waypoints.min.js" />
+    <Content Include="wwwroot\assets\plugins\datatable\css\dataTables.bootstrap5.min.css" />
+    <Content Include="wwwroot\assets\plugins\datatable\css\jquery.dataTables.min.css" />
+    <Content Include="wwwroot\assets\plugins\datatable\images\sort_asc_disabled.png" />
+    <Content Include="wwwroot\assets\plugins\datatable\images\sort_desc_disabled.png" />
+    <Content Include="wwwroot\assets\plugins\datatable\js\dataTables.bootstrap5.min.js" />
+    <Content Include="wwwroot\assets\plugins\datatable\js\jquery.dataTables.min.js" />
+    <Content Include="wwwroot\assets\plugins\date-picker\jquery-ui.js" />
+    <Content Include="wwwroot\assets\plugins\date-picker\spectrum.css" />
+    <Content Include="wwwroot\assets\plugins\date-picker\spectrum.js" />
+    <Content Include="wwwroot\assets\plugins\dygraph-charts\data.js" />
+    <Content Include="wwwroot\assets\plugins\dygraph-charts\dygraph.js" />
+    <Content Include="wwwroot\assets\plugins\echarts\echarts.js" />
+    <Content Include="wwwroot\assets\plugins\fileuploads\css\fileupload.css" />
+    <Content Include="wwwroot\assets\plugins\fileuploads\js\fileupload.js" />
+    <Content Include="wwwroot\assets\plugins\flot\jquery.flot.fillbetween.js" />
+    <Content Include="wwwroot\assets\plugins\flot\jquery.flot.js" />
+    <Content Include="wwwroot\assets\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="wwwroot\assets\plugins\formwizard\fromwizard.js" />
+    <Content Include="wwwroot\assets\plugins\formwizard\jquery.smartWizard.js" />
+    <Content Include="wwwroot\assets\plugins\formwizard\smart_wizard.css" />
+    <Content Include="wwwroot\assets\plugins\formwizard\smart_wizard_theme_dots.css" />
+    <Content Include="wwwroot\assets\plugins\forn-wizard\css\forn-wizard.css" />
+    <Content Include="wwwroot\assets\plugins\forn-wizard\img\bg.html" />
+    <Content Include="wwwroot\assets\plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="wwwroot\assets\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="wwwroot\assets\plugins\fullcalendar\moment.min.js" />
+    <Content Include="wwwroot\assets\plugins\gallery\gallery-1.js" />
+    <Content Include="wwwroot\assets\plugins\gallery\gallery.css" />
+    <Content Include="wwwroot\assets\plugins\gallery\gallery.js" />
+    <Content Include="wwwroot\assets\plugins\gauge\gauge.js" />
+    <Content Include="wwwroot\assets\plugins\iconfonts\icons.html" />
+    <Content Include="wwwroot\assets\plugins\input-mask\jquery.mask.min.js" />
+    <Content Include="wwwroot\assets\plugins\input-mask\jquery.maskedinput.js" />
+    <Content Include="wwwroot\assets\plugins\ion.rangeSlider\css\ion.rangeSlider.css" />
+    <Content Include="wwwroot\assets\plugins\ion.rangeSlider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="wwwroot\assets\plugins\ion.rangeSlider\img\sprite-skin-simple.png" />
+    <Content Include="wwwroot\assets\plugins\ion.rangeSlider\js\ion.rangeSlider.min.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\bars-1to10.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\bars-horizontal.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\bars-movie.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\bars-pill.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\bars-reversed.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\bars-square.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\bootstrap-stars.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\css-stars.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\fontawesome-stars-o.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\dist\themes\fontawesome-stars.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\jquery.barrating.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\js\examples.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-bar-rating\js\rating.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-countdown\countdown.css" />
+    <Content Include="wwwroot\assets\plugins\jquery-countdown\countdown.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-countdown\jquery.countdown.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-countdown\jquery.plugin.min.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-inputmask\jquery.inputmask.bundle.min.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-knob\jquery.knob.min.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-sparkline\jquery.sparkline.min.js" />
+    <Content Include="wwwroot\assets\plugins\jquery-steps\jquery.steps.min.js" />
+    <Content Include="wwwroot\assets\plugins\jquery.easy-pie-chart\jquery.easypiechart.min.js" />
+    <Content Include="wwwroot\assets\plugins\jqvmap\jquery.vmap.js" />
+    <Content Include="wwwroot\assets\plugins\jqvmap\jquery.vmap.sampledata.js" />
+    <Content Include="wwwroot\assets\plugins\jqvmap\jqvmap.min.css" />
+    <Content Include="wwwroot\assets\plugins\jqvmap\maps\jquery.vmap.germany.js" />
+    <Content Include="wwwroot\assets\plugins\jqvmap\maps\jquery.vmap.russia.js" />
+    <Content Include="wwwroot\assets\plugins\jqvmap\maps\jquery.vmap.usa.js" />
+    <Content Include="wwwroot\assets\plugins\jqvmap\maps\jquery.vmap.world.js" />
+    <Content Include="wwwroot\assets\plugins\morris\morris.css" />
+    <Content Include="wwwroot\assets\plugins\morris\morris.js" />
+    <Content Include="wwwroot\assets\plugins\morris\raphael-min.js" />
+    <Content Include="wwwroot\assets\plugins\notify\css\jquery.growl.css" />
+    <Content Include="wwwroot\assets\plugins\notify\css\notifIt.css" />
+    <Content Include="wwwroot\assets\plugins\notify\js\jquery.growl.js" />
+    <Content Include="wwwroot\assets\plugins\notify\js\notifIt.js" />
+    <Content Include="wwwroot\assets\plugins\notify\js\rainbow.js" />
+    <Content Include="wwwroot\assets\plugins\notify\js\sample.js" />
+    <Content Include="wwwroot\assets\plugins\owl-carousel\cursor.png" />
+    <Content Include="wwwroot\assets\plugins\parsleyjs\parsley.min.js" />
+    <Content Include="wwwroot\assets\plugins\pscrollbar\pscroll.js" />
+    <Content Include="wwwroot\assets\plugins\pscrollbar\pscroll1.js" />
+    <Content Include="wwwroot\assets\plugins\pscrollbar\pscrollbar.css" />
+    <Content Include="wwwroot\assets\plugins\pscrollbar\pscrollbar.js" />
+    <Content Include="wwwroot\assets\plugins\select2\select2.css" />
+    <Content Include="wwwroot\assets\plugins\select2\select2.full.min.js" />
+    <Content Include="wwwroot\assets\plugins\sidemenu\sidemenu.js" />
+    <Content Include="wwwroot\assets\plugins\sweet-alert\sweetalert.css" />
+    <Content Include="wwwroot\assets\plugins\sweet-alert\sweetalert.min.js" />
+    <Content Include="wwwroot\assets\plugins\tabs\jquery.multipurpose_tabcontent.js" />
+    <Content Include="wwwroot\assets\plugins\tabs\tabs.css" />
+    <Content Include="wwwroot\assets\plugins\time-picker\jquery.timepicker.css" />
+    <Content Include="wwwroot\assets\plugins\time-picker\jquery.timepicker.js" />
+    <Content Include="wwwroot\assets\plugins\time-picker\toggles.min.js" />
+    <Content Include="wwwroot\assets\plugins\timeline\timeline.css" />
+    <Content Include="wwwroot\assets\plugins\timeline\timeline.min.js" />
+    <Content Include="wwwroot\assets\plugins\vertical-scroll\jquery.bootstrap.newsbox.js" />
+    <Content Include="wwwroot\assets\plugins\vertical-scroll\vertical-scroll.js" />
+    <Content Include="wwwroot\assets\plugins\wysiwyag\jquery.richtext.js" />
+    <Content Include="wwwroot\assets\plugins\wysiwyag\richtext.css" />
+    <Content Include="wwwroot\assets\switcher\css\switcher.css" />
+    <Content Include="wwwroot\assets\switcher\js\switcher.js" />
+    <Content Include="wwwroot\assets\pdf\course.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authentication filter\CustomAuthenticationFilter.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DiagnosticTestsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cours.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseQueAn.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DaigtestAn.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiagnosticTest.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiagnosticTestsMetaData.cs" />
+    <Compile Include="Models\IB_MathModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IB_MathModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IB_MathModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IB_MathModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IB_MathModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RolesMetaData.cs" />
+    <Compile Include="Models\sp_GetStudentScore_Result.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetStudentwiseScore_Result.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersCours.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersDiagnostictest.cs">
+      <DependentUpon>IB_MathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersMetaData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Roles\create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\edit.cshtml" />
+    <Content Include="Views\Roles\index.cshtml" />
+    <Content Include="Views\Shared\_Master.cshtml" />
+    <Content Include="Views\Home\index.cshtml" />
+    <Content Include="Views\Dashboard\index.cshtml" />
+    <Content Include="Views\Frontend\Register.cshtml" />
+    <Content Include="Views\Shared\_FrontMaster.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Register.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\DiagnosticTests\Create.cshtml" />
+    <Content Include="Views\DiagnosticTests\Delete.cshtml" />
+    <Content Include="Views\DiagnosticTests\Details.cshtml" />
+    <Content Include="Views\DiagnosticTests\Edit.cshtml" />
+    <Content Include="Views\DiagnosticTests\Index.cshtml" />
+    <Content Include="Views\DiagnosticTests\DiagnosticTests_mcqtest.cshtml" />
+    <Content Include="Views\Shared\_FrontMaster1.cshtml" />
+    <Content Include="Views\DiagnosticTests\Diagnostic_mcqresult.cshtml" />
+    <Content Include="Views\Users\Profile.cshtml" />
+    <Content Include="Views\Dashboard\frontDashboard.cshtml" />
+    <Content Include="Views\Dashboard\frontIndex.cshtml" />
+    <Content Include="Views\Dashboard\courses.cshtml" />
+    <Content Include="Views\DiagnosticTests\Diagnostic_main.cshtml" />
+    <Content Include="Views\Home\CourseDetails.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Dashboard\courses_partial_view.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="wwwroot\assets\iconfonts\feather\fonts\feather-webfont6cfa.eot" />
+    <Content Include="wwwroot\assets\iconfonts\feather\fonts\feather-webfont6cfa.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\feather\fonts\feather-webfont6cfa.woff" />
+    <Content Include="wwwroot\assets\iconfonts\glyphicons\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\assets\iconfonts\glyphicons\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\glyphicons\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\assets\iconfonts\glyphicons\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\glyphicons\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\ionicons\fonts\ioniconsaa26.eot" />
+    <Content Include="wwwroot\assets\iconfonts\ionicons\fonts\ioniconsaa26.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\ionicons\fonts\ioniconsaa26.woff" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-brands-400.eot" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-brands-400.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-brands-400.woff" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-brands-400.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-brands-400d41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-regular-400.eot" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-regular-400.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-regular-400.woff" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-regular-400.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-regular-400d41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-solid-900.eot" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-solid-900.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-solid-900.woff" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-solid-900.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\line-awesome\fonts\la-solid-900d41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\linearicons\fonts\Linearicons-Free54e9.eot" />
+    <Content Include="wwwroot\assets\iconfonts\linearicons\fonts\Linearicons-Free54e9.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\linearicons\fonts\Linearicons-Free54e9.woff" />
+    <Content Include="wwwroot\assets\iconfonts\linearicons\fonts\Linearicons-Free54e9.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\linearicons\fonts\Linearicons-Freed41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\materialdesignicons-webfontd41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\materialdesignicons-webfontdf71.eot" />
+    <Content Include="wwwroot\assets\iconfonts\materialdesignicons\fonts\materialdesignicons-webfontdf71.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\pe-icon-7-stroke\fonts\Pe-icon-7-strokebb1d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\pe-icon-7-stroke\fonts\Pe-icon-7-strokebb1d.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\pe-icon-7-stroke\fonts\Pe-icon-7-strokebb1d.woff" />
+    <Content Include="wwwroot\assets\iconfonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroked41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\simple-line-icons\fonts\Simple-Line-Iconsb26c.eot" />
+    <Content Include="wwwroot\assets\iconfonts\simple-line-icons\fonts\Simple-Line-Iconsb26c.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\simple-line-icons\fonts\Simple-Line-Iconsb26c.woff" />
+    <Content Include="wwwroot\assets\iconfonts\simple-line-icons\fonts\Simple-Line-Iconsb26c.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\themify\fonts\themify9f24.eot" />
+    <Content Include="wwwroot\assets\iconfonts\themify\fonts\themify9f24.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\themify\fonts\themify9f24.woff" />
+    <Content Include="wwwroot\assets\iconfonts\themify\fonts\themifyd41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\typicons\fonts\typicons.eot" />
+    <Content Include="wwwroot\assets\iconfonts\typicons\fonts\typicons.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\typicons\fonts\typicons.woff" />
+    <Content Include="wwwroot\assets\iconfonts\typicons\fonts\typiconsd41d.eot" />
+    <Content Include="wwwroot\assets\iconfonts\weathericons\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="wwwroot\assets\iconfonts\weathericons\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="wwwroot\assets\iconfonts\weathericons\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="wwwroot\assets\iconfonts\weathericons\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="wwwroot\assets\iconfonts\weathericons\fonts\weathericons-regular-webfontd41d.eot" />
+    <Content Include="wwwroot\assets\plugins\calendar\resources\fonts\iconfont.eot" />
+    <Content Include="wwwroot\assets\plugins\calendar\resources\fonts\iconfont.ttf" />
+    <Content Include="wwwroot\assets\plugins\calendar\resources\fonts\iconfont.woff" />
+    <Content Include="wwwroot\assets\plugins\calendar\resources\fonts\iconfontd41d.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62961</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44304/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

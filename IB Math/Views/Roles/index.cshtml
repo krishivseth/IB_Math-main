@@ -1,0 +1,108 @@
+﻿@model IEnumerable<IB_Math.Models.Role>
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+<div class="side-app">
+    <div class="page-header">
+        <h4 class="page-title">Roles</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Dashboard/index">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Roles</li>
+        </ol>
+    </div>
+    <!--/Page-Header-->
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <a type="button" href="/Roles/create" class="btn btn-primary float-right"><span class="btn-svg-text"><i class="icon icon-plus me-1"></i>Add Role</span></a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example2" class="hover table-bordered table border-bottom-0">
+                            <thead>
+                                <tr>
+                                    <th>Role Name</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Role_name)
+                                        </td>
+                                        <td class="mx-auto">
+
+                                            <a href="/Roles/Edit/@item.Role_id">
+                                                <i class="zmdi zmdi-edit btn btn-purple" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit" aria-label="zmdi zmdi-edit"></i>
+                                            </a>
+                                            <a class="delete" data-id="@item.Role_id">
+                                                <i class="ion-trash-b btn btn-red" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete" aria-label="ion-trash-b"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JQuery js-->
+<script src="~/wwwroot/assets/js/jquery-3.2.1.min.js"></script>
+<script>
+    $(".delete").on("click", function () {
+        alert("Are You Want To Delete !!");
+        var data = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/Roles/Delete/" + data.data("id"),
+            success: function (r) {
+                window.location.reload();
+                alert("Deleted Successfullyy");
+            }
+        });
+
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@Html.ActionLink("Edit", "Edit", new { id = item.Role_id })
+@Html.ActionLink("Delete", "Delete", new { id = item.Role_id })*@
+@*<i class="zmdi zmdi-edit btn btn-purple" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit" aria-label="zmdi zmdi-edit"></i>*@
+
+@*<i class="ion-trash-b btn btn-red" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete" aria-label="ion-trash-b"></i>*@
+<!--</td>
+                                  </tr>
+                               }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->

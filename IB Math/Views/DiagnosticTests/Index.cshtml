@@ -1,0 +1,98 @@
+﻿
+@model IEnumerable<IB_Math.Models.DiagnosticTest>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+
+
+<div class="side-app">
+    <div class="page-header">
+        <h4 class="page-title">All Diagnostic</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Dashboard/">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All Diagnostic</li>
+        </ol>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <a type="button" href="/DiagnosticTests/Create" class="btn btn-primary float-right"><span class="btn-svg-text"><i class="icon icon-plus me-1"></i>Add Diagnostic</span></a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example2" class="hover table-bordered table border-bottom-0">
+                            <thead>
+                                <tr>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Diagtest_que)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Weightage)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Course_id)
+                                    </th>
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+                            {
+                                <tbody>
+                                    <tr>
+
+                                        <td>
+                                            @Html.Raw(item.Diagtest_que)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Weightage)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Course_id)
+                                        </td>
+
+
+                                        <td class="mx-auto">
+                                            <a href="/DiagnosticTests/Edit/@item.Diagtest_id">
+                                                <i class="zmdi zmdi-edit btn btn-purple" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit" aria-label="zmdi zmdi-edit"></i>
+                                            </a>
+                                            <a class="delete" data-id="@item.Diagtest_id">
+                                                <i class="ion-trash-b btn btn-red" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete" aria-label="ion-trash-b"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JQuery js-->
+<script src="~/wwwroot/assets/js/jquery-3.2.1.min.js"></script>
+<script>
+    $(".delete").on("click", function () {
+        alert("Are You Want To Delete !!");
+        var data = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/DiagnosticTests/Delete/" + data.data("id"),
+            success: function (r) {
+                window.location.reload();
+                alert("Deleted Successfullyy");
+            }
+        });
+
+    });
+
+</script>

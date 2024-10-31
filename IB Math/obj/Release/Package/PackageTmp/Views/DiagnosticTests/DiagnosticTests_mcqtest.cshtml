@@ -1,0 +1,157 @@
+﻿@*@{
+        ViewBag.Title = "DiagnosticTests_mcqtest";
+        Layout = "~/Views/Shared/_FrontMaster1.cshtml";
+    }*@
+
+@model List<IB_Math.Models.DiagnosticTest>
+@{
+    ViewBag.Title = "Diagnostic Test";
+    Layout = "~/Views/Shared/_FrontMaster1.cshtml";
+}
+<div class="side-app">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-md-12 d-block mx-auto">
+
+
+                <!--Page-Header-->
+                @using (Html.BeginForm("DiagnosticTests_mcqtest", "DiagnosticTests", FormMethod.Post))
+                {
+                    <div class="page-header">
+                        <h4 class="page-title">Diagnostic Test</h4>
+                    </div>
+
+                    <!--/Page-Header-->
+                    <div class="row">
+                        @{
+                            string coursename = "";
+                            int courseid = 0;
+                            int i = 0;
+                        }
+
+                        @foreach (var item in Model)
+                        {
+
+                            courseid = item.Course_id;
+                            if (coursename != item.Cours.Course_name)
+                            {
+                                <div class="card" id="@courseid">
+                                    <div class="card-header bg-primary border border-primary border-radius15">
+                                        <h1 class="center-block text-white mb-0">@item.Cours.Course_name</h1>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+
+                                            @{var questiondata = Model.Where(x => x.Course_id.Equals(courseid)).ToList();
+                                                
+                                            }
+
+                                            @foreach (var que in questiondata)
+                                            {
+
+                                                <div class="col-12 p-0">
+                                                    <img src="@que.Diagtest_que" class="img-responsive" />
+                                                </div>
+
+                                                <div class="col-12 ms-2 mt-3">
+                                                    <ul>
+
+                                                        <li class="d-inline me-5">
+                                                            <div class="form-check">
+
+                                                                <input class="form-check-input" type="radio" name="Model[@i].Diagtest_answer" id="option1" value=a>
+                                                                <label class="form-check-label" for="Model[@i].Diagtest_answer">
+                                                                    @Html.DisplayFor(modelItem => que.Option1)
+                                                                </label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="d-inline me-5">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="Model[@i].Diagtest_answer" id="exampleRadios2" value=b>
+                                                                <label class="form-check-label" for="Model[@i].Diagtest_answer">
+                                                                    @Html.DisplayFor(modelItem => que.Option2)
+                                                                </label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="d-inline me-5">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="Model[@i].Diagtest_answer" id="exampleRadios2" value=c>
+                                                                <label class="form-check-label" for="Model[@i].Diagtest_answer">
+                                                                    @Html.DisplayFor(modelItem => que.Option3)
+                                                                </label>
+                                                            </div>
+                                                        </li>
+                                                        <li class="d-inline me-5">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="Model[@i].Diagtest_answer" id="opti" value=d>
+                                                                <label class="form-check-label" for="Model[@i].Diagtest_answer">
+                                                                    @Html.DisplayFor(modelItem => que.Option4)
+                                                                </label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                i++;
+                                            }
+
+
+                                        </div>
+                                        <div class="col-20 text-center mt-5">
+                                            @if (courseid == 5)
+                                            {
+                                                <button type="submit" class="btn btn-primary skyblue-btn fs-14 border-radius10">SUBMIT</button>
+                                            }
+                                            else
+                                            {
+                                                <button type="button" data-id="@courseid" class="btn btn-primary skyblue-btn fs-14 border-radius10 next">NEXT</button>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                                coursename = item.Cours.Course_name;
+                            }
+                        }
+
+                    </div>
+
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JQuery js-->
+<script src="~/wwwroot/assets/js/jquery-3.2.1.min.js"></script>
+
+<script>
+    $("form").on("submit", function () {
+        var serializeForm = $(this).serialize();
+        debugger
+        //Send the JSON array to Controller using AJAX.
+        $.ajax({
+            type: "POST",
+            url: "/DiagnosticTests/DiagnosticTests_mcqtest",
+            data: serializeForm,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (r) {
+                alert(r + " record(s) inserted.");
+            }
+        });
+    });
+
+    $(function () {
+        $('#2,#3,#4,#5').hide()
+        $('.next').click(function () {
+            var id = $(this).data('id');
+            $('#' + id).hide();
+            $('#' +(id+1)).show();
+
+
+        });
+    });
+
+</script>
+

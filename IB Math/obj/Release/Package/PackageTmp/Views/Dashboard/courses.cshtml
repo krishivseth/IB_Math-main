@@ -1,0 +1,66 @@
+﻿@model IEnumerable<IB_Math.Models.sp_GetStudentScore_Result>
+@{
+    ViewBag.Title = "Suggested Courses";
+    Layout = "~/Views/Shared/_FrontMaster1.cshtml";
+}
+<!-- Page Header-->
+<div class="page-header">
+    <h4 class="page-title fs-25 fw-500"><b>Courses</b></h4>
+</div>
+<!-- /Page Header-->
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+
+            @if (item.Score < 70)
+            {
+            <div class="card">
+                <div class="card-body">
+                    <a href="~/wwwroot/assets/pdf/course.pdf" class="text-dark fs-16" download>
+                        <div class="row">
+                            <div class="col-10">
+                                <img src="/wwwroot/assets/images/ibmath-course/Group 446.png" alt="" class="me-2 course-img">
+                                <span class="text-dark fs-16">@item.Course_name</span>
+                            </div>
+                            <div class="col-2 text-center justify-content-center align-self-center">
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            }
+
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        Marks Obtained
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        @foreach (var item in Model)
+                        {
+                            <div class="@(item.Score < 70  ? "alert alert-danger" : "alert alert-success" )" style="">
+                                <div class="row">
+                                    <div class="col-3 right">
+                                        <h4>@item.Course_name : </h4> <h2>@item.Score</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,207 @@
+.fb-btn{
+background  :#5856D6 !important;
+}
+
+.skyblue-btn{
+    background: #00BCD4;
+    border-color: #00BCD4;
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.16);
+}
+
+.google-btn{
+    background: #D84226;
+}
+
+.login-social{
+color: #fff;
+font-size: 18px;
+font-weight: 400 !important;
+border-radius: 8px;
+width: 155px;
+
+}
+
+.fw-400{
+    font-weight: 400;
+}
+
+.fw-700{
+    font-weight: 700;
+}
+
+.bg-color{
+    background-color: #8675F4;
+}
+
+.single-page .wrapper>form{
+    background: #8675F4;
+}
+
+.single-page .wrapper input {
+    height: 40px;
+    padding: 5px 15px;
+    width: 100%;
+    border: solid 1px #ffffff;
+    border-radius: 8px;
+    background-color: #8675F4;
+}
+
+.single-page .wrapper input::-webkit-input-placeholder {
+    color: #ffffff !important;
+  }
+
+.green-color{
+    color: #00BCD4;    
+}
+
+.single-page .wrapper.wrapper2{
+    background-color: #8675F4;
+}
+
+.form-checkbox .custom-control-input:checked ~ .custom-control-label::before, .form-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
+    background-color: #00BCD4;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: #00BCD4;
+}
+
+a:hover {
+    color: #212124;
+    text-decoration: none;
+}
+
+.fw-500{
+    font-weight: 500;
+}
+
+.fw-400{
+    font-weight: 400;
+}
+
+.border-radius10{
+    border-radius: 10px;
+}
+
+.border-radius15{
+    border-radius: 15px !important;
+}
+
+.border-radius20{
+    border-radius: 20px;
+}
+
+.chart-circle-xs1-progress {
+    height: 55px;
+    width: 55px;
+    font-size: 14px;
+}
+
+.font-primary{
+    color: #725CFF;
+}
+
+.course-card{
+    height: 493px;
+}
+
+.grey-bg{
+    background-color: #F7F8F7;
+}
+
+.course-img{
+    width: 30px;
+}
+
+.coursename-img{
+    width: 50px;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    color: #000 !important;
+}
+
+p{
+    color: #081131 !important;
+}
+
+.fs-32 {
+    font-size: 32px !important;
+}
+
+.fs-24 {
+    font-size: 24px !important;
+}
+
+a{
+    color: #9DA6BA;
+}
+
+h6 {
+    width: 50%; 
+    text-align: center; 
+    border-bottom: 1px solid #fff; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+ } 
+ 
+ h6 span { 
+     background:#8675F4; 
+     padding:0 10px; 
+ }
+
+ .teacher-profile{
+    height: 1rem;
+    width: 1rem;
+ }
+
+ .card-height{
+    height: 100%;
+ }
+
+
+ #login input{
+    color: #fff;
+ }
+
+ #login input[type=checkbox]{
+    border: solid 1px #00BCD4 !important;
+    outline: solid 1px #00BCD4 !important;
+ }
+
+ .teacher-name{
+    text-align: start;
+ }
+
+@media(min-width: 319px) and (max-width: 325px){
+    .fs-48{
+        font-size: 43px !important;
+    }   
+
+    .fs-16{
+        font-size: 13px !important;
+    }
+
+}
+
+@media(min-width: 319px) and (max-width: 375px){
+
+    .course-img{
+        width: 43px;
+    }
+
+    .create-font{
+        font-size: 25px !important;
+    }
+
+    .ibmath-font{
+        font-size: 22px !important;
+    }
+
+}

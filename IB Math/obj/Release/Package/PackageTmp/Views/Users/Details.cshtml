@@ -1,0 +1,138 @@
+﻿@model IB_Math.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_class)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_grade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_academicposition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_academicposition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_diagtestflag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_diagtestflag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletedAt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.User_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

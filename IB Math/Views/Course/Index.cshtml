@@ -1,0 +1,159 @@
+﻿@model IEnumerable<IB_Math.Models.Cours>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+<div class="side-app">
+    <div class="page-header">
+        <h4 class="page-title">All Courses</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Dashboard/">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All Courses</li>
+        </ol>
+    </div>
+    <!--/Page-Header-->
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <a type="button" href="/Course/Create" class="btn btn-primary float-right"><span class="btn-svg-text"><i class="icon icon-plus me-1"></i>Add Course</span></a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example2" class="hover table-bordered table border-bottom-0">
+                            <thead>
+                                <tr>
+                                    <th> @Html.DisplayNameFor(model => model.Course_name)</th>
+                                    @*<th>Question</th>
+                                        <th>Answer</th>
+                                        <th>Mark</th>
+                                        <th>Concept/Explanation</th>*@
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+                            {
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Course_name)
+                                        </td>
+                                        @*<td>Question ? </td>
+                                            <td>Answer</td>
+                                            <td>50</td>
+                                            <td>Video</td>*@
+                                        <td class="mx-auto">
+                                            <a href="/Course/Edit/@item.Course_id">
+                                                <i class="zmdi zmdi-edit btn btn-purple" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit" aria-label="zmdi zmdi-edit"></i>
+                                            </a>
+                                            <a class="delete" data-id="@item.Course_id">
+                                                <i class="ion-trash-b btn btn-red" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete" aria-label="ion-trash-b"></i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JQuery js-->
+<script src="~/wwwroot/assets/js/jquery-3.2.1.min.js"></script>
+<script>
+    $(".delete").on("click", function () {
+        alert("Are You Want To Delete !!");
+        var data = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/Course/Delete/" + data.data("id"),
+            success: function (r) {
+                window.location.reload();
+                alert("Deleted Successfullyy");
+            }
+        });
+
+    });
+
+</script>
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Course_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course_concept)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course_files)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeletedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeletedBy)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course_concept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course_files)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeletedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeletedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Course_id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Course_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Course_id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

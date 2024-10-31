@@ -1,0 +1,118 @@
+﻿
+
+
+@model IB_Math.Models.DiagnosticTest
+
+    @{
+        ViewBag.Title = "Create";
+        Layout = "~/Views/Shared/_Master.cshtml";
+
+    }
+
+    <div class="side-app">
+        <div class="page-header">
+            <h4 class="page-title">Add Diagnostic </h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/DaignosticTests/Create">All Diagnostic</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Diagnostic</li>
+            </ol>
+        </div>
+        <!--/Page-Header-->
+        @using (Html.BeginForm())
+        { 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card m-b-20">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label">DiagTest Name</label>
+                                            @Html.EditorFor(model => model.Diagtest_name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Diagtest_name, "", new { @class = "text-danger" })
+                                            @*<input type="text" class="form-control" id="name1" placeholder="Course Name">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Course Id</label>
+                                            @Html.DropDownList("Course_id", new SelectList(ViewBag.Course_id, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Course_id, "", new { @class = "text-danger" })
+                                            @*<input type="text" class="form-control" id="name2" placeholder="Question">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-label">Diagnostic Test Que</label>
+                                        <textarea id="Diagtest_que" name="Diagtest_que"></textarea>
+                                        @*@Html.EditorFor(model => model.Diagtest_que, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Diagtest_que, "", new { @class = "text-danger" })*@
+                                        @*<div class="editor"></div>*@
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Option1</label>
+                                            @Html.EditorFor(model => model.Option1, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Option1, "", new { @class = "text-danger" })
+
+                                            @*<input type="number" class="form-control" id="name1" placeholder="Marks">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Option2</label>
+                                            @Html.EditorFor(model => model.Option2, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Option2, "", new { @class = "text-danger" })
+
+                                            @*<input type="number" class="form-control" id="name1" placeholder="Marks">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Option3</label>
+                                            @Html.EditorFor(model => model.Option3, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Option3, "", new { @class = "text-danger" })
+
+                                            @*<input type="number" class="form-control" id="name1" placeholder="Marks">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Option4</label>
+                                            @Html.EditorFor(model => model.Option4, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Option4, "", new { @class = "text-danger" })
+
+                                            @*<input type="number" class="form-control" id="name1" placeholder="Marks">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Weightage</label>
+                                            @Html.EditorFor(model => model.Weightage, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Weightage, "", new { @class = "text-danger" })
+
+                                            @*<input type="number" class="form-control" id="name1" placeholder="Marks">*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Answer</label>
+                                            @Html.EditorFor(model => model.Diagtest_answer, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Diagtest_answer, "", new { @class = "text-danger" })
+
+                                            @*<input type="number" class="form-control" id="name1" placeholder="Marks">*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center mb-3">
+                                    @*<a href="/DiagnosticTests/Create" class="btn btn-primary">Submit</a>*@
+                                    <input type="submit" value="Submit" class="btn btn-primary" />
+                                    <a href="/DiagnosticTests/Index" class="btn btn-danger">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        }
+    </div>

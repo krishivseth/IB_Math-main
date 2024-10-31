@@ -1,0 +1,65 @@
+﻿
+
+@model IEnumerable<IB_Math.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Master.cshtml";
+
+
+}
+
+<div class="side-app">
+    <div class="page-header">
+        <h4 class="page-title">All User</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Dashboard/">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All Users</li>
+        </ol>
+    </div>
+    <!--/Page-Header-->
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card">
+               
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example2" class="hover table-bordered table border-bottom-0">
+                            <thead>
+                                <tr>
+                                    <th> @Html.DisplayNameFor(model => model.User_fname)     </th>
+                                    <th> @Html.DisplayNameFor(model => model.User_age)  </th>
+                                    <th> @Html.DisplayNameFor(model => model.User_email)  </th>
+                                    <th>@Html.DisplayNameFor(model => model.User_academicposition) </th>
+                                    <th>@Html.DisplayNameFor(model => model.User_class) </th>
+
+
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+                            {
+                        <tbody>
+                            <tr>
+                                <td> @Html.DisplayFor(modelItem => item.User_fname)</td>
+                                <td> @Html.DisplayFor(modelItem => item.User_age)</td>
+                                <td> @Html.DisplayFor(modelItem => item.User_email)</td>
+                                <td> @Html.DisplayFor(modelItem => item.User_Role)</td>
+                                <td>@Html.DisplayFor(modelItem => item.User_class)</td>
+                               
+                                @*<td class="mx-auto">
+                                    <a href="users-edit.html">
+                                        <i class="zmdi zmdi-edit btn btn-purple" data-bs-toggle="tooltip" title="" data-bs-original-title="Edit" aria-label="zmdi zmdi-edit"></i>
+                                    </a>
+                                    <i class="ion-trash-b btn btn-red" data-bs-toggle="tooltip" title="" data-bs-original-title="Delete" aria-label="ion-trash-b"></i>
+                                </td>*@
+                            </tr>
+                        </tbody> 
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+<aside class="app-sidebar doc-sidebar">
+    <a class="header-brand sidemenu-header-brand" href="index.html">
+        <span class="text-dark header-brand-img desktop-logo">IB Math</span>
+    </a>
+    <ul class="side-menu">
+        <li class="slide">
+            <a class="side-menu__item" href="login.html">
+                <span class="side-menu__label fs-16 text-white">
+                    <button type="button" class="btn btn-primary w-100 teacher-name">
+                        <img src="/assets/images/users/user.png" alt="profile-img" class="teacher-profile"> Teacher Name <br>
+                        abc@gmail.com
+                    </button>
+                </span>
+            </a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="/Users/Login/"><i class="ion-log-in me-5"></i><span class="side-menu__label"> Log In</span></a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="/DiagnosticTests/"><i class="fa fa-duotone fa-brain me-5"></i><span class="side-menu__label"> Diagnostic Test</span></a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="ibmath-courses.html"><i class="icon icon-badge me-5"></i><span class="side-menu__label"> Courses</span></a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="/Dashboard/index.html"><i class="icon icon-home me-5"></i><span class="side-menu__label"> Dashboard</span></a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="message.html"><i class="icon icon-envelope me-5"></i><span class="side-menu__label"> Messages</span></a>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" href="ibmath-student.html"><i class="mdi mdi-account-multiple me-5"></i><span class="side-menu__label"> Student</span></a>
+        </li>
+    </ul>
+</aside>
+<!-- /Sidebar menu-->
+<!--App-Content-->
+<div class="app-content  my-3 my-md-5">
+    <div class="side-app">
+        <!-- Page Header-->
+        <div class="page-header">
+            <h4 class="page-title fs-25 fw-500"><b>Students</b></h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Dashboard/">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Student</li>
+            </ol>
+        </div>
+        <!-- /Page Header-->
+
+        <div class="row">
+            <!-- All Course -->
+            <div class="col-xl-7 col-lg-12 col-md-12 mx-auto">
+                <div class="card">
+                    <div class="card-header d-none d-lg-flex">
+                        <h3 class="w-85 fw-500 fs-32">All Courses</h3>
+                        <a href="#" class="float-end fs-16">View All <i class="angle fa fa-angle-right ps-4"></i></a>
+                    </div>
+                    <div class="card-header d-block d-lg-none">
+                        <h3 class="w-100 fw-500 fs-32">All Courses</h3>
+                        <a href="#" class="fs-16">View All <i class="angle fa fa-angle-right ps-4"></i></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="dash5">
+                            <div class="row">
+                                <div class="col-md-6 col-6">
+                                    <p class="text-dark fw-500 fs-16 ms-2 text-center"><b>Student Name</b></p>
+                                </div>
+                                <div class="col-md-6 col-6">
+                                    <p class="text-dark fw-500 fs-16 text-center"><b>Class</b></p>
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col-md-6 col-6 text-center">
+                                        <img src="/assets/images/ibmath-course/Group 446.png" alt="" class="me-3 course-img">
+                                        <span class="text-dark fs-16">ABC</span>
+                                    </div>
+                                    <div class="col-md-6 col-6 text-center justify-content-center align-self-center">
+                                        <span class="text-dark fs-16">10</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col-md-6 col-6 text-center">
+                                        <img src="/assets/images/ibmath-course/Group 448.png" alt="" class="me-3 course-img">
+                                        <span class="text-dark fs-16">XYZ</span>
+                                    </div>
+                                    <div class="col-md-6 col-6 text-center justify-content-center align-self-center">
+                                        <span class="text-dark fs-16">9</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col-md-6 col-6 text-center">
+                                        <img src="/assets/images/ibmath-course/Group 449.png" alt="" class="me-3 course-img">
+                                        <span class="text-dark fs-16">ABC</span>
+                                    </div>
+                                    <div class="col-md-6 col-6 text-center justify-content-center align-self-center">
+                                        <span class="text-dark fs-16">10</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col-md-6 col-6 text-center">
+                                        <img src="/assets/images/ibmath-course/Group 450.png" alt="" class="me-3 course-img">
+                                        <span class="text-dark fs-16">ABC</span>
+                                    </div>
+                                    <div class="col-md-6 col-6 text-center justify-content-center align-self-center">
+                                        <span class="text-dark fs-16">10</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

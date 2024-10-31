@@ -1,0 +1,765 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IB_MathModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CourseQueAns">
+          <Key>
+            <PropertyRef Name="CourseQueAns_id" />
+          </Key>
+          <Property Name="CourseQueAns_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course_Ans" Type="varchar(max)" Nullable="false" />
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="datetime" />
+          <Property Name="UpdatedBy" Type="datetime" />
+          <Property Name="DeletedBy" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="Course_id" />
+          </Key>
+          <Property Name="Course_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Course_concept" Type="varchar(max)" />
+          <Property Name="Course_files" Type="varchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="datetime" />
+          <Property Name="UpdatedBy" Type="datetime" />
+          <Property Name="DeletedBy" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DaigtestAns">
+          <Key>
+            <PropertyRef Name="DiagtestAns_id" />
+          </Key>
+          <Property Name="DiagtestAns_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Diagtest_Score" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="datetime" />
+          <Property Name="UpdatedBy" Type="datetime" />
+          <Property Name="DeletedBy" Type="datetime" />
+          <Property Name="student_id" Type="int" />
+          <Property Name="Course_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="DiagnosticTest">
+          <Key>
+            <PropertyRef Name="Diagtest_id" />
+          </Key>
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="Diagtest_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Diagtest_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Diagtest_que" Type="varchar(max)" Nullable="false" />
+          <Property Name="Option1" Type="varchar(max)" Nullable="false" />
+          <Property Name="Option2" Type="varchar(max)" Nullable="false" />
+          <Property Name="Option3" Type="varchar(max)" Nullable="false" />
+          <Property Name="Option4" Type="varchar(max)" Nullable="false" />
+          <Property Name="Weightage" Type="int" Nullable="false" />
+          <Property Name="CraetedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="datetime" />
+          <Property Name="UpdatedBy" Type="datetime" />
+          <Property Name="Deletedby" Type="datetime" />
+          <Property Name="Diagtest_answer" Type="nvarchar(max)" />
+          <Property Name="QueType" Type="bit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role_id" />
+          </Key>
+          <Property Name="Role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="datetime" />
+          <Property Name="UpdatedBy" Type="datetime" />
+          <Property Name="DeletedBy" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_name" Type="varchar(max)" />
+          <Property Name="User_password" Type="varchar(max)" Nullable="false" />
+          <Property Name="User_fname" Type="varchar(max)" Nullable="false" />
+          <Property Name="User_email" Type="varchar(max)" Nullable="false" />
+          <Property Name="User_age" Type="int" Nullable="false" />
+          <Property Name="User_class" Type="varchar(max)" />
+          <Property Name="User_grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_academicposition" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="datetime" />
+          <Property Name="UpdatedBy" Type="datetime" />
+          <Property Name="DeletedBy" Type="datetime" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedAt" Type="datetime" />
+          <Property Name="User_Role" Type="varchar(max)" />
+          <Property Name="User_diagtestflag" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UsersCourses">
+          <Key>
+            <PropertyRef Name="UsersCourses_id" />
+          </Key>
+          <Property Name="UsersCourses_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" Nullable="false" />
+          <Property Name="Course_id" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="datetime" />
+          <Property Name="UpdatedBy" Type="datetime" />
+          <Property Name="DeletedBy" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UsersDiagnostictest">
+          <Key>
+            <PropertyRef Name="UsersDiagtest_id" />
+          </Key>
+          <Property Name="UsersDiagtest_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" Nullable="false" />
+          <Property Name="Diagtest_id" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedAt" Type="datetime" />
+          <Property Name="CreatedBy" Type="datetime" />
+          <Property Name="UpdatedBy" Type="datetime" />
+          <Property Name="DeletedBy" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_CourseQueAns_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="CourseQueAns" Type="Self.CourseQueAns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="CourseQueAns">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DaigtestAns_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="0..1" />
+          <End Role="DaigtestAns" Type="Self.DaigtestAns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="DaigtestAns">
+              <PropertyRef Name="Course_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnosticTest_DiagnosticTest">
+          <End Role="DiagnosticTest" Type="Self.DiagnosticTest" Multiplicity="1" />
+          <End Role="DiagnosticTest1" Type="Self.DiagnosticTest" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DiagnosticTest">
+              <PropertyRef Name="Diagtest_id" />
+            </Principal>
+            <Dependent Role="DiagnosticTest1">
+              <PropertyRef Name="Diagtest_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnosticTest_DiagnosticTest1">
+          <End Role="DiagnosticTest" Type="Self.DiagnosticTest" Multiplicity="1" />
+          <End Role="DiagnosticTest1" Type="Self.DiagnosticTest" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DiagnosticTest">
+              <PropertyRef Name="Diagtest_id" />
+            </Principal>
+            <Dependent Role="DiagnosticTest1">
+              <PropertyRef Name="Diagtest_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersCourses_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="UsersCourses" Type="Self.UsersCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="UsersCourses">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersCourses_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UsersCourses" Type="Self.UsersCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="UsersCourses">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersDiagnostictest_DiagnosticTest">
+          <End Role="DiagnosticTest" Type="Self.DiagnosticTest" Multiplicity="1" />
+          <End Role="UsersDiagnostictest" Type="Self.UsersDiagnostictest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiagnosticTest">
+              <PropertyRef Name="Diagtest_id" />
+            </Principal>
+            <Dependent Role="UsersDiagnostictest">
+              <PropertyRef Name="Diagtest_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersDiagnostictest_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UsersDiagnostictest" Type="Self.UsersDiagnostictest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="UsersDiagnostictest">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_GetStudentScore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetStudentwiseScore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="inp_UserId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="IB_MathModelStoreContainer">
+          <EntitySet Name="CourseQueAns" EntityType="Self.CourseQueAns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DaigtestAns" EntityType="Self.DaigtestAns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiagnosticTest" EntityType="Self.DiagnosticTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersCourses" EntityType="Self.UsersCourses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersDiagnostictest" EntityType="Self.UsersDiagnostictest" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CourseQueAns_Courses" Association="Self.FK_CourseQueAns_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="CourseQueAns" EntitySet="CourseQueAns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DaigtestAns_Courses" Association="Self.FK_DaigtestAns_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="DaigtestAns" EntitySet="DaigtestAns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnosticTest_DiagnosticTest" Association="Self.FK_DiagnosticTest_DiagnosticTest">
+            <End Role="DiagnosticTest" EntitySet="DiagnosticTest" />
+            <End Role="DiagnosticTest1" EntitySet="DiagnosticTest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnosticTest_DiagnosticTest1" Association="Self.FK_DiagnosticTest_DiagnosticTest1">
+            <End Role="DiagnosticTest" EntitySet="DiagnosticTest" />
+            <End Role="DiagnosticTest1" EntitySet="DiagnosticTest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersCourses_Courses" Association="Self.FK_UsersCourses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="UsersCourses" EntitySet="UsersCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersCourses_Users" Association="Self.FK_UsersCourses_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersCourses" EntitySet="UsersCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersDiagnostictest_DiagnosticTest" Association="Self.FK_UsersDiagnostictest_DiagnosticTest">
+            <End Role="DiagnosticTest" EntitySet="DiagnosticTest" />
+            <End Role="UsersDiagnostictest" EntitySet="UsersDiagnostictest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersDiagnostictest_Users" Association="Self.FK_UsersDiagnostictest_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersDiagnostictest" EntitySet="UsersDiagnostictest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IB_MathModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CourseQueAn">
+          <Key>
+            <PropertyRef Name="CourseQueAns_id" />
+          </Key>
+          <Property Name="CourseQueAns_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_Ans" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Cours" Relationship="Self.FK_CourseQueAns_Courses" FromRole="CourseQueAns" ToRole="Courses" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="Course_id" />
+          </Key>
+          <Property Name="Course_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_concept" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Course_files" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CourseQueAns" Relationship="Self.FK_CourseQueAns_Courses" FromRole="Courses" ToRole="CourseQueAns" />
+          <NavigationProperty Name="DaigtestAns" Relationship="Self.FK_DaigtestAns_Courses" FromRole="Courses" ToRole="DaigtestAns" />
+          <NavigationProperty Name="UsersCourses" Relationship="Self.FK_UsersCourses_Courses" FromRole="Courses" ToRole="UsersCourses" />
+        </EntityType>
+        <EntityType Name="DaigtestAn">
+          <Key>
+            <PropertyRef Name="DiagtestAns_id" />
+          </Key>
+          <Property Name="DiagtestAns_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Diagtest_Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="DateTime" Precision="3" />
+          <Property Name="student_id" Type="Int32" />
+          <Property Name="Course_Id" Type="Int32" />
+          <NavigationProperty Name="Cours" Relationship="Self.FK_DaigtestAns_Courses" FromRole="DaigtestAns" ToRole="Courses" />
+        </EntityType>
+        <EntityType Name="DiagnosticTest">
+          <Key>
+            <PropertyRef Name="Diagtest_id" />
+          </Key>
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="Diagtest_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Diagtest_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Diagtest_que" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Option1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Option2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Option3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Option4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Weightage" Type="Int32" Nullable="false" />
+          <Property Name="CraetedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="DateTime" Precision="3" />
+          <Property Name="Deletedby" Type="DateTime" Precision="3" />
+          <Property Name="Diagtest_answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QueType" Type="Boolean" />
+          <NavigationProperty Name="DiagnosticTest1" Relationship="Self.FK_DiagnosticTest_DiagnosticTest" FromRole="DiagnosticTest" ToRole="DiagnosticTest1" />
+          <NavigationProperty Name="DiagnosticTest2" Relationship="Self.FK_DiagnosticTest_DiagnosticTest" FromRole="DiagnosticTest1" ToRole="DiagnosticTest" />
+          <NavigationProperty Name="DiagnosticTest11" Relationship="Self.FK_DiagnosticTest_DiagnosticTest1" FromRole="DiagnosticTest" ToRole="DiagnosticTest1" />
+          <NavigationProperty Name="DiagnosticTest3" Relationship="Self.FK_DiagnosticTest_DiagnosticTest1" FromRole="DiagnosticTest1" ToRole="DiagnosticTest" />
+          <NavigationProperty Name="UsersDiagnostictests" Relationship="Self.FK_UsersDiagnostictest_DiagnosticTest" FromRole="DiagnosticTest" ToRole="UsersDiagnostictest" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role_id" />
+          </Key>
+          <Property Name="Role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_fname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_age" Type="Int32" Nullable="false" />
+          <Property Name="User_class" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_academicposition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="DateTime" Precision="3" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+          <Property Name="User_Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_diagtestflag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UsersCourses" Relationship="Self.FK_UsersCourses_Users" FromRole="Users" ToRole="UsersCourses" />
+          <NavigationProperty Name="UsersDiagnostictests" Relationship="Self.FK_UsersDiagnostictest_Users" FromRole="Users" ToRole="UsersDiagnostictest" />
+        </EntityType>
+        <EntityType Name="UsersCours">
+          <Key>
+            <PropertyRef Name="UsersCourses_id" />
+          </Key>
+          <Property Name="UsersCourses_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="Int32" Nullable="false" />
+          <Property Name="Course_id" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Cours" Relationship="Self.FK_UsersCourses_Courses" FromRole="UsersCourses" ToRole="Courses" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UsersCourses_Users" FromRole="UsersCourses" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UsersDiagnostictest">
+          <Key>
+            <PropertyRef Name="UsersDiagtest_id" />
+          </Key>
+          <Property Name="UsersDiagtest_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="Int32" Nullable="false" />
+          <Property Name="Diagtest_id" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DiagnosticTest" Relationship="Self.FK_UsersDiagnostictest_DiagnosticTest" FromRole="UsersDiagnostictest" ToRole="DiagnosticTest" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UsersDiagnostictest_Users" FromRole="UsersDiagnostictest" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_CourseQueAns_Courses">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+          <End Role="CourseQueAns" Type="Self.CourseQueAn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="CourseQueAns">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DaigtestAns_Courses">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="0..1" />
+          <End Role="DaigtestAns" Type="Self.DaigtestAn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="DaigtestAns">
+              <PropertyRef Name="Course_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersCourses_Courses">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+          <End Role="UsersCourses" Type="Self.UsersCours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Course_id" />
+            </Principal>
+            <Dependent Role="UsersCourses">
+              <PropertyRef Name="Course_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnosticTest_DiagnosticTest">
+          <End Role="DiagnosticTest" Type="Self.DiagnosticTest" Multiplicity="1" />
+          <End Role="DiagnosticTest1" Type="Self.DiagnosticTest" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DiagnosticTest">
+              <PropertyRef Name="Diagtest_id" />
+            </Principal>
+            <Dependent Role="DiagnosticTest1">
+              <PropertyRef Name="Diagtest_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DiagnosticTest_DiagnosticTest1">
+          <End Role="DiagnosticTest" Type="Self.DiagnosticTest" Multiplicity="1" />
+          <End Role="DiagnosticTest1" Type="Self.DiagnosticTest" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DiagnosticTest">
+              <PropertyRef Name="Diagtest_id" />
+            </Principal>
+            <Dependent Role="DiagnosticTest1">
+              <PropertyRef Name="Diagtest_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersDiagnostictest_DiagnosticTest">
+          <End Role="DiagnosticTest" Type="Self.DiagnosticTest" Multiplicity="1" />
+          <End Role="UsersDiagnostictest" Type="Self.UsersDiagnostictest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiagnosticTest">
+              <PropertyRef Name="Diagtest_id" />
+            </Principal>
+            <Dependent Role="UsersDiagnostictest">
+              <PropertyRef Name="Diagtest_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersCourses_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="UsersCourses" Type="Self.UsersCours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="UsersCourses">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersDiagnostictest_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="UsersDiagnostictest" Type="Self.UsersDiagnostictest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="UsersDiagnostictest">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IB_MathEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CourseQueAns" EntityType="Self.CourseQueAn" />
+          <EntitySet Name="Courses" EntityType="Self.Cours" />
+          <EntitySet Name="DaigtestAns" EntityType="Self.DaigtestAn" />
+          <EntitySet Name="DiagnosticTests" EntityType="Self.DiagnosticTest" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UsersCourses" EntityType="Self.UsersCours" />
+          <EntitySet Name="UsersDiagnostictests" EntityType="Self.UsersDiagnostictest" />
+          <AssociationSet Name="FK_CourseQueAns_Courses" Association="Self.FK_CourseQueAns_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="CourseQueAns" EntitySet="CourseQueAns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DaigtestAns_Courses" Association="Self.FK_DaigtestAns_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="DaigtestAns" EntitySet="DaigtestAns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersCourses_Courses" Association="Self.FK_UsersCourses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="UsersCourses" EntitySet="UsersCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnosticTest_DiagnosticTest" Association="Self.FK_DiagnosticTest_DiagnosticTest">
+            <End Role="DiagnosticTest" EntitySet="DiagnosticTests" />
+            <End Role="DiagnosticTest1" EntitySet="DiagnosticTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DiagnosticTest_DiagnosticTest1" Association="Self.FK_DiagnosticTest_DiagnosticTest1">
+            <End Role="DiagnosticTest" EntitySet="DiagnosticTests" />
+            <End Role="DiagnosticTest1" EntitySet="DiagnosticTests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersDiagnostictest_DiagnosticTest" Association="Self.FK_UsersDiagnostictest_DiagnosticTest">
+            <End Role="DiagnosticTest" EntitySet="DiagnosticTests" />
+            <End Role="UsersDiagnostictest" EntitySet="UsersDiagnostictests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersCourses_Users" Association="Self.FK_UsersCourses_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersCourses" EntitySet="UsersCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersDiagnostictest_Users" Association="Self.FK_UsersDiagnostictest_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersDiagnostictest" EntitySet="UsersDiagnostictests" />
+          </AssociationSet>
+          <FunctionImport Name="sp_GetStudentScore" ReturnType="Collection(IB_MathModel.sp_GetStudentScore_Result)" />
+          <FunctionImport Name="sp_GetStudentwiseScore" ReturnType="Collection(IB_MathModel.sp_GetStudentwiseScore_Result)">
+            <Parameter Name="inp_UserId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_GetStudentScore_Result">
+          <Property Type="Int32" Name="Score" Nullable="true" />
+          <Property Type="String" Name="Course_name" Nullable="false" />
+          <Property Type="Int32" Name="Course_id" Nullable="false" />
+          <Property Type="String" Name="User_fname" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_GetStudentwiseScore_Result">
+          <Property Type="Int32" Name="Score" Nullable="true" />
+          <Property Type="String" Name="User_fname" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IB_MathModelStoreContainer" CdmEntityContainer="IB_MathEntities2">
+          <EntitySetMapping Name="CourseQueAns">
+            <EntityTypeMapping TypeName="IB_MathModel.CourseQueAn">
+              <MappingFragment StoreEntitySet="CourseQueAns">
+                <ScalarProperty Name="CourseQueAns_id" ColumnName="CourseQueAns_id" />
+                <ScalarProperty Name="Course_Ans" ColumnName="Course_Ans" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="IB_MathModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Course_name" ColumnName="Course_name" />
+                <ScalarProperty Name="Course_concept" ColumnName="Course_concept" />
+                <ScalarProperty Name="Course_files" ColumnName="Course_files" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DaigtestAns">
+            <EntityTypeMapping TypeName="IB_MathModel.DaigtestAn">
+              <MappingFragment StoreEntitySet="DaigtestAns">
+                <ScalarProperty Name="DiagtestAns_id" ColumnName="DiagtestAns_id" />
+                <ScalarProperty Name="Diagtest_Score" ColumnName="Diagtest_Score" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiagnosticTests">
+            <EntityTypeMapping TypeName="IB_MathModel.DiagnosticTest">
+              <MappingFragment StoreEntitySet="DiagnosticTest">
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Diagtest_id" ColumnName="Diagtest_id" />
+                <ScalarProperty Name="Diagtest_name" ColumnName="Diagtest_name" />
+                <ScalarProperty Name="Diagtest_que" ColumnName="Diagtest_que" />
+                <ScalarProperty Name="Option1" ColumnName="Option1" />
+                <ScalarProperty Name="Option2" ColumnName="Option2" />
+                <ScalarProperty Name="Option3" ColumnName="Option3" />
+                <ScalarProperty Name="Option4" ColumnName="Option4" />
+                <ScalarProperty Name="Weightage" ColumnName="Weightage" />
+                <ScalarProperty Name="CraetedAt" ColumnName="CraetedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Deletedby" ColumnName="Deletedby" />
+                <ScalarProperty Name="Diagtest_answer" ColumnName="Diagtest_answer" />
+                <ScalarProperty Name="QueType" ColumnName="QueType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="IB_MathModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+                <ScalarProperty Name="Role_name" ColumnName="Role_name" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IB_MathModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="User_name" ColumnName="User_name" />
+                <ScalarProperty Name="User_password" ColumnName="User_password" />
+                <ScalarProperty Name="User_fname" ColumnName="User_fname" />
+                <ScalarProperty Name="User_email" ColumnName="User_email" />
+                <ScalarProperty Name="User_age" ColumnName="User_age" />
+                <ScalarProperty Name="User_class" ColumnName="User_class" />
+                <ScalarProperty Name="User_grade" ColumnName="User_grade" />
+                <ScalarProperty Name="User_academicposition" ColumnName="User_academicposition" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="User_Role" ColumnName="User_Role" />
+                <ScalarProperty Name="User_diagtestflag" ColumnName="User_diagtestflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersCourses">
+            <EntityTypeMapping TypeName="IB_MathModel.UsersCours">
+              <MappingFragment StoreEntitySet="UsersCourses">
+                <ScalarProperty Name="UsersCourses_id" ColumnName="UsersCourses_id" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersDiagnostictests">
+            <EntityTypeMapping TypeName="IB_MathModel.UsersDiagnostictest">
+              <MappingFragment StoreEntitySet="UsersDiagnostictest">
+                <ScalarProperty Name="UsersDiagtest_id" ColumnName="UsersDiagtest_id" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Diagtest_id" ColumnName="Diagtest_id" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetStudentScore" FunctionName="IB_MathModel.Store.sp_GetStudentScore">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IB_MathModel.sp_GetStudentScore_Result">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Course_name" ColumnName="Course_name" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="User_fname" ColumnName="User_fname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetStudentwiseScore" FunctionName="IB_MathModel.Store.sp_GetStudentwiseScore">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IB_MathModel.sp_GetStudentwiseScore_Result">
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="User_fname" ColumnName="User_fname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

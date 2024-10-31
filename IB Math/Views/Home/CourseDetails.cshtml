@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "Course Details";
+    Layout = "~/Views/Shared/_FrontMaster1.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in ViewBag.Courses)
+        {
+            <div class="col-xl-12 col-md-12 col-md-12 d-block mx-auto">
+                <!--Page-Header-->
+                <div class="page-header">
+                    <h4 class="page-title">@item.Course_name</h4>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active"><a href="/Dashboard/courses" class="text-primary">All Courses</a></li>
+                    </ol>
+                </div>
+                <!--/Page-Header-->
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 p-0 mb-3">
+                                    <p>
+                                        @item.Course_concept
+                                    </p>
+                                </div>
+                                <hr>
+                                <div class="col-12 p-0">
+                                    <h4 class="fw-500">1. Find the degree of the polynomial 2x</h4>
+                                </div>
+                                <div class="col-12 ms-2 mt-3">
+                                    <ul>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    (A) 3
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    (B) 4
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    (C) 6
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    (D) 5
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 p-0 mt-7">
+                                    <h4 class="fw-500">2. The rule, which gives the number of matchsticks required to make the matchstick pattern L, is</h4>
+                                </div>
+                                <div class="col-12 ms-2 mt-3">
+                                    <ul>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadiosSecond" id="exampleRadios1" value="option1" checked>
+                                                <label class="form-check-label" for="exampleRadios11">
+                                                    (A) 3n
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadiosSecond" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios22">
+                                                    (B) 4n
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadiosSecond" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios33">
+                                                    (C) 6n
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadiosSecond" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios44">
+                                                    (D) 5n
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 p-0 mt-7">
+                                    <h4>3. The rule, which gives the number of matchsticks required to make the matchstick pattern ≅, is</h4>
+                                </div>
+                                <div class="col-12 ms-2 mt-3">
+                                    <ul>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadiosThree" id="exampleRadios1" value="option1" checked>
+                                                <label class="form-check-label" for="exampleRadios111">
+                                                    (A) 3n
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadiosThree" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios222">
+                                                    (B) 4n
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadiosThree" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios333">
+                                                    (C) 6n
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li class="d-inline me-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadiosThree" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios444">
+                                                    (D) 5n
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="col-20 text-center mt-5">
+                                <a class="btn btn-primary skyblue-btn fs-14 border-radius10" href="#">SUBMIT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

@@ -1,0 +1,63 @@
+﻿@model IB_Math.Models.User
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_FrontMaster1.cshtml";
+}
+
+
+    @using (Html.BeginForm("Profile","Users",FormMethod.Post))
+    {
+
+        <div class="row">
+            <div class="col-xl-5 col-md-12 col-lg-8 mx-auto p-0 mt-6 mb-6">
+                <div class="card user-pro-list overflow-hidden">
+                    <div class="card-body">
+                        <div class="user-pic text-center">
+                            <span class="avatar avatar-xxl brround" style="background-image: url(/wwwroot/assets/images/users/user.png)">
+                                <span class="avatar-status bg-green"></span>
+                            </span>
+                            <div class="pro-user mt-3">
+                                <h5 class="pro-user-username text-dark mb-1 fs-16">@Model.User_fname <br><span class="pro-user-desc text-muted fs-12"> @Model.User_email</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Personal Details</h4>
+                        <div class="table-responsive user-details">
+                            <table class="table mb-0">
+                                <tbody>
+                                    @*@foreach (var item in Model)
+                                    {*@
+                                        <tr>
+                                            <td class="py-2 px-0">
+                                                <span class="font-weight-semibold w-50">FName </span>
+                                            </td>
+                                            <td class="py-2 px-0">@Model.User_fname </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-0">
+                                                <span class="font-weight-semibold w-50">Email </span>
+                                            </td>
+                                            <td class="py-2 px-0">@Model.User_email</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-0">
+                                                <span class="font-weight-semibold w-50">Password Change</span>
+                                            </td>
+                                            <td class="py-2 px-0"><input type="password" name="User_password" id="User_password" class="form-control" required></td>
+                                        </tr>
+                                    @*}*@
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-20 text-center mt-5">
+                            <button type="submit" id="btn-pwdchange" disabled class="btn btn-primary skyblue-btn fs-14 border-radius10">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    

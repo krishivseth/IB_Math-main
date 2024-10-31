@@ -1,0 +1,96 @@
+﻿
+@model IB_Math.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_FrontMaster.cshtml";
+}
+
+<div class="page page-h">
+    <div class="page-content z-documentation-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-md-12 col-md-12 d-block mx-auto">
+                    <div class="card">
+                        <div class="card-body p-6">
+                            <div class="mb-6">
+                                <h5 class="fs-25 font-weight-semibold">Register Now !</h5>
+                            </div>
+
+                            @using (Html.BeginForm("Register", "Users", FormMethod.Post))
+                            {
+                                <div class="single-page customerpage">
+                                    <div class="wrapper wrapper2 box-shadow-0">
+                                        <form id="register" tabindex="500">
+                                            <div class="row">
+                                                <div class="fname mt-2 col-md-6">
+                                                    <label>Full name <span class="text-danger">*</span></label>
+                                                    @Html.EditorFor(model => model.User_fname, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.User_fname, "", new { @class = "text-danger" })
+                                                    @*<input type="text" name="name">*@
+                                                </div>
+                                                <div class="mail mt-2 col-md-6">
+                                                    <label>Email ID <span class="text-danger">*</span></label>
+                                                    @Html.EditorFor(model => model.User_email, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.User_email, "", new { @class = "text-danger" })
+                                                    @*<input type="email" name="mail">*@
+                                                </div>
+                                                <div class="age mt-2 col-md-6">
+                                                    <label>Age <span class="text-danger">*</span></label>
+                                                    @Html.EditorFor(model => model.User_age, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.User_age, "", new { @class = "text-danger" })
+                                                    @*<input type="text" name="age">*@
+                                                </div>
+                                                <div class="grade mt-2 col-md-6">
+                                                    <label>Grade ( <span class="text-danger">*</span> Mandatory for Students Only )</label>
+                                                    @Html.EditorFor(model => model.User_grade, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.User_grade, "", new { @class = "text-danger" })
+                                                    @*<input type="text" name="grade">*@
+                                                </div>
+                                                <div class="password mt-2 col-md-12">
+                                                    <label>Password <span class="text-danger">*</span></label>
+                                                    @Html.PasswordFor(model => model.User_password, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.User_password, "", new { @class = "text-danger" })
+                                                    @*<input type="password" name="password">*@
+                                                </div>
+                                                <p class="col-md-8 text-dark mb-0 mt-3">Already have an account?<a href="/" class="text-primary ms-1">Sign In</a></p>
+                                                <div class="col-md-4 submit mt-3">
+                                                    <input type="submit" value="Register" class="btn btn-primary btn-block" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-body p-6 border-top d-none">
+                            <div class="d-flex">
+                                <div>
+                                    <h5 class="modal-title fs-20 font-weight-semibold">Register with Social</h5>
+                                    <p class="fs-16">If you are going to use a passage of Lorem Ipsum</p>
+                                    <div class="">
+                                        <div class="btn-group">
+                                            <a href="https://www.facebook.com/" class="social-button">
+                                                <span class="fe fe-facebook"></span> Facebook
+                                            </a>
+                                        </div>
+                                        <div class="btn-group">
+                                            <a href="https://www.google.com/gmail/" class="social-button">
+                                                <span class="fe fe-linkedin"></span> Linkedin
+                                            </a>
+                                        </div>
+                                        <div class="btn-group mt-2 mt-md-0">
+                                            <a href="https://twitter.com/" class="social-button">
+                                                <span class="fe fe-twitter"></span> Twitter
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    }

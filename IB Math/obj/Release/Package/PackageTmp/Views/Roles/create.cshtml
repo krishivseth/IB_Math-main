@@ -1,0 +1,56 @@
+﻿@model IB_Math.Models.Role
+
+@{
+    ViewBag.Title = "create";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+<div class="side-app">
+    <div class="page-header">
+        <h4 class="page-title">Add Role</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Roles/create"> All Roles</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add Role</li>
+        </ol>
+    </div>
+    <!--/Page-Header-->
+    <!-- end row -->
+    @using (Html.BeginForm("create","Roles",FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card m-b-20">
+                    <form>
+                        <div class="card-body">
+
+                            <div class="form-row">
+
+                                @*<div class="form-group col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Role Name</label>
+                                        <input type="text" class="form-control" id="name1" placeholder="Role Name">
+                                    </div>
+                                </div>*@
+                                <div class="form-group col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Role Name</label>
+                                        @Html.EditorFor(model => model.Role_name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Role_name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mb-3">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                            <a href="/Roles/Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+   
