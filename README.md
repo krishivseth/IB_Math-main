@@ -1,92 +1,85 @@
-# IB_Math
+# IB Math
 
+**A diagnostic test and course portal for IB Math students, built on ASP.NET MVC 5.**
 
+Students register, sit a multiple-choice diagnostic test, and get a per-course score. Courses where they score under 70 are flagged and linked to study material. Teachers see the same breakdown for any student and manage the courses, questions, and roles behind it.
 
-## Getting started
+## What it does
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- **Two roles from one sign-up form.** A user who enters a grade is stored as a student; one who leaves it blank is a teacher. Login is by email and password against the `Users` table, and a session cookie tracks who is signed in.
+- **A one-time diagnostic test.** New students are sent straight to the test on first login. Every question has four options and a weightage tied to a course. Correct answers add that weightage to the student's score for that course, and a flag on the user stops the test from being offered again.
+- **Per-course results.** The student dashboard lists each course with its score, marks anything under 70 in red, and links to the course PDF under `wwwroot/assets/pdf/`.
+- **A teacher view.** Teachers pick a student from a dropdown and get the same course-by-course breakdown as a partial view.
+- **CRUD admin pages.** Scaffolded controllers and Razor views for courses, diagnostic questions, roles, and users.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## How it works
 
-## Add your files
+Every request goes through a plain MVC pipeline: a Razor view posts to a controller, the controller reads or writes through an Entity Framework 6 database-first model (`Models/IB_MathModel.edmx`), and SQL Server holds the data. There is no API layer and no client-side framework beyond jQuery.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+```mermaid
+flowchart LR
+    B["Browser<br/>Razor views + jQuery"]
+    C["Controllers<br/>Users, DiagnosticTests,<br/>Dashboard, Course, Roles, Home"]
+    EF["Entity Framework 6<br/>IB_MathEntities (EDMX)"]
+    DB["SQL Server<br/>IB_Math database"]
+
+    B -- "form posts" --> C
+    C -- "LINQ" --> EF
+    EF --> DB
+```
+
+The login action decides where a user lands: a student who has not taken the test goes to `DiagnosticTests/Diagnostic_main`, a student who has goes to `Dashboard/courses`, and everyone else goes to `Dashboard/frontIndex`. `CustomAuthenticationFilter` redirects to the login page when the session has no user id.
+
+The database has eight tables (`Users`, `Role`, `Courses`, `CourseQueAns`, `DiagnosticTest`, `DaigtestAns`, `UsersCourses`, `UsersDiagnostictest`) and two stored procedures for score totals. The controllers currently compute scores in C# rather than calling the procedures.
+
+## Quick start
+
+You need Windows with Visual Studio 2022, the .NET Framework 4.7.2 targeting pack, and a SQL Server instance.
+
+**1. Create the database**
+
+Run `DB_IBMath.sql` against your SQL Server. It creates the `IB_Math` database, the tables, and the stored procedures. The script is schema only, so add courses and questions through the admin pages after you sign in.
+
+**2. Point the app at it**
+
+Edit the `IB_MathEntities` connection string in `IB Math/Web.config` and replace the `data source`, `User id`, and `password` with your own. The checked-in values point at a remote server that you should not rely on.
+
+**3. Run**
+
+Open `IB Math.sln` in Visual Studio, restore NuGet packages, and press F5. IIS Express serves the site at `https://localhost:44304/` and the default route opens the login page at `/Users/Login`.
+
+## Configuration
+
+There are no environment variables. Everything lives in `IB Math/Web.config`.
+
+| Setting | Purpose |
+|---------|---------|
+| `connectionStrings/IB_MathEntities` | EF6 connection string for the `IB_Math` database. The only thing you have to change. |
+| `compilation debug` | `true` in the checked-in config. `Web.Release.config` turns it off on publish. |
+| `Properties/PublishProfiles/FolderProfile.pubxml` | Folder publish profile used to produce the compiled build. |
+
+## Project layout
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/ib_math/IB_Math.git
-git branch -M main
-git push -uf origin main
+IB Math.sln
+DB_IBMath.sql                  Database, tables, and stored procedures
+IB Math/
+├── App_Start/                 Routes (default: Users/Login) and global filters
+├── Authentication Filter/     Session-based auth filter
+├── Controllers/               Users, DiagnosticTests, Dashboard, Course, Roles, Home
+├── Models/                    EF6 database-first model (EDMX) and metadata classes
+├── Views/                     Razor views; Shared/ holds the admin and front layouts
+├── wwwroot/assets/            Admin theme CSS/JS, images, and the course PDF
+└── Web.config                 Connection string and framework settings
+images/IB/                     Topic images (NA, CAL, SP, GT, FUN), not referenced by the code
+IB_Math.zip                    Snapshot of the source tree
+compiled_code_IBMath.zip       Published build output
 ```
 
-## Integrate with your tools
+## Limitations
 
-- [ ] [Set up project integrations](https://gitlab.com/ib_math/IB_Math/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+- Passwords are stored and compared in plain text.
+- The diagnostic test grades answers by list position, so it assumes the posted list matches the order of `DiagnosticTests` in the database.
+- Anti-forgery tokens are commented out on the form posts.
+- The default admin theme ships with many unused scripts and assets under `wwwroot/assets/`.
+- There are no tests.
